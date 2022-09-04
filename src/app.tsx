@@ -1,38 +1,27 @@
-import React from 'react';
-import { View } from 'react-native';
 import ThemeProvider, { THEMES } from '@blue-learn/theme';
-
-import {
-	Divider,
-	MockedWidgetProps,
-	Space,
-	Typography,
-	WidgetRegistry,
-} from '@blue-learn/component';
-import { DividerSizeTokens, FontSizeTokens, SizeTypeTokens } from '@blue-learn/schema';
-import { ScrollView } from 'react-native';
-
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+import MicroFrontendScreen from './screens/micro-frontend';
+import ComponentsScreen from './screens/components';
 ThemeProvider.init(THEMES.DARK_MOBILE);
+
+const Stack = createNativeStackNavigator();
 
 const App: React.FC<any> = () => {
 	return (
-		<View>
-			<ScrollView style={{ flex: 1, padding: 24, backgroundColor: 'black' }}>
-				{Object.keys(WidgetRegistry).map((item) => {
-					const Widget = WidgetRegistry[item];
-					return (
-						<>
-							<Space.Component size={SizeTypeTokens.XL} />
-							<Typography.Component label={item} fontSize={FontSizeTokens.XL} />
-							<Space.Component size={SizeTypeTokens.XL} />
-							{Widget.Mock && <Widget.Component {...Widget.Mock.args} {...MockedWidgetProps} />}
-							<Space.Component size={SizeTypeTokens.XL} />
-							<Divider.Component size={DividerSizeTokens.LG} />
-						</>
-					);
-				})}
-			</ScrollView>
-		</View>
+		<NavigationContainer>
+			<Stack.Navigator>
+				<Stack.Screen name="Home" component={ComponentsScreen} />
+				<Stack.Screen
+					name="MicroFrontend"
+					component={MicroFrontendScreen}
+					options={{
+						headerBackButtonMenuEnabled: true,
+					}}
+				/>
+			</Stack.Navigator>
+		</NavigationContainer>
 	);
 };
 

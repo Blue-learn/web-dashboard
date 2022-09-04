@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "@blue-learn/component": "^0.0.35",
+    "@blue-learn/platform": "^0.0.13",
     "@blue-learn/schema": "^0.0.35",
     "@blue-learn/theme": "^0.0.35",
-    "@react-navigation/web": "^1.0.0-alpha.9",
+    "@react-navigation/native": "^6.0.12",
+    "@react-navigation/native-stack": "^6.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-native-web": "^0.18.9"
@@ -24,6 +26,7 @@
     "babel-plugin-react-native-web": "^0.18.9",
     "css-loader": "^6.7.1",
     "eslint": "^8.23.0",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "prettier": "^2.7.1",
     "prop-types": "^15.8.1",
