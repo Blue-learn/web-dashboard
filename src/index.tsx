@@ -6,5 +6,5 @@ AppRegistry.registerComponent(appName, () => App);
 
 AppRegistry.runApplication(appName, {
 	initialProps: {},
-	rootTag: document.getElementById("app-root"),
+	rootTag: document.getElementById("bl-app-root"),
 });
